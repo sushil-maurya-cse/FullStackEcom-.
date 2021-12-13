@@ -11,12 +11,11 @@ import { Link } from "react-router-dom";
 import profileImage from "../../images/Profile.png";
 import {  login, register } from "../../actions/userAction";
 import { clearErrors } from "../../actions/userAction";
-import { useLocation } from 'react-router-dom';
+
 
 
 const LoginSignUp = () => {
   const history=useNavigate();
-  const location=useLocation();
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -98,7 +97,7 @@ const LoginSignUp = () => {
     if(isAuthenticated){
       history(redirect)
     }
-  }, [dispatch, error, alert,isAuthenticated,history]);
+  }, [dispatch, error,redirect, alert,isAuthenticated,history]);
 
   return (
     <Fragment>

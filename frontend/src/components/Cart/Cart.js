@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { addItemsToCart, removeItemsFromCart } from "../../actions/cartActions";
 import { useNavigate } from "react-router";
 
-const Cart = ({ }) => {
+const Cart = () => {
 
    const history=useNavigate();
   const dispatch = useDispatch();

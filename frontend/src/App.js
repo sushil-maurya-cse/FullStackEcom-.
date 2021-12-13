@@ -21,6 +21,8 @@ import ForgotPassword from "./components/User/ForgotPassword.js";
 import ResetPassword from "./components/User/ResetPassword.js";
 import Cart from "./components/Cart/Cart.js";
 import Shipping from "./components/Shipping/Shipping.js";
+import ConfirmOrder from "./components/Cart/ConfirmOrder.js";
+
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
@@ -75,6 +77,10 @@ function App() {
       <Routes>
         <Route path="/login/shipping/" element={<ProtectedRoute><Shipping /></ProtectedRoute>} />
       </Routes>
+      <Routes>
+        <Route path="/order/confirm" element={<ProtectedRoute><ConfirmOrder /></ProtectedRoute>} />
+      </Routes>
+
       <Footer />
     </Router>
   );

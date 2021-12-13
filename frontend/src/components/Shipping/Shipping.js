@@ -11,10 +11,13 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from 'react-redux';
 import Metadata from '../layout/Metadata';
 import CheckoutSteps from "../Cart/CheckoutSteps.js";
+import { useNavigate } from 'react-router';
+import { saveShippingInfo } from '../../actions/cartActions';
 
 const Shipping = () => {
     const dispatch= useDispatch();
     const alert = useAlert();
+    const history= useNavigate();
     const { shippingInfo} = useSelector((state)=>state.cart);
 
     const [address, setAddress] = useState(shippingInfo.address);
@@ -23,6 +26,21 @@ const Shipping = () => {
     const [country, setCountry] = useState(shippingInfo.country);
     const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
     const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
+
+
+    const shippingSubmit = (e) => {
+      e.preventDefault();
+  
+      if (phoneNo.length < 10 || phoneNo.length > 10) {
+        alert.error("Phone Number should be 10 digits Long");
+        return;
+      }
+      dispatch(
+        saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
+      );
+      history("/order/confirm");
+    };
+  
     
 
     return (
@@ -38,7 +56,7 @@ const Shipping = () => {
             <form
               className="shippingForm"
               encType="multipart/form-data"
-            /*   onSubmit={shippingSubmit} */
+              onSubmit={shippingSubmit}
             >
               <div>
                 <HomeIcon />
