@@ -1,0 +1,32 @@
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    max-width: 100%;
+  }
+    
+  .loading > div.rect {
+    width: 10vmax;
+    height: 10vmax;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.719);
+    border-radius: 10%;
+    animation: loadingRotate 1000ms linear infinite;
+  }
+  
+  .loading > div.rect> div {
+    content: "FullstackEcom.";
+    width: 8vmax;
+    height: 8vmax;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.719);
+    border-radius: 50%;
+    animation: loadingRotate 800ms linear infinite;
+  }
+  
+  @keyframes loadingRotate {
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
