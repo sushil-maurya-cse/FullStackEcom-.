@@ -135,6 +135,9 @@
   .productCard > p {
     font-size: 1.7vmax;
   }
+  img.logoReactNavbar {
+    width: 100% !important;
+}
 
   .productCard > div {
     margin: 0vmax;
