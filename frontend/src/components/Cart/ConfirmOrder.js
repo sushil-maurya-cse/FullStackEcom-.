@@ -31,6 +31,7 @@ const ConfirmOrder = () => {
       shippingCharges,
       tax,
       totalPrice,
+      address
     };
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
@@ -70,10 +71,9 @@ const ConfirmOrder = () => {
                     <img src={item.image} alt="Product" />
                     <Link to={`/product/${item.product}`}>
                       {item.name}
-                    </Link>{" "}
+                    </Link>
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X ₹{item.price} =   <b>₹{item.price * item.quantity}</b>
                     </span>
                   </div>
                 ))}

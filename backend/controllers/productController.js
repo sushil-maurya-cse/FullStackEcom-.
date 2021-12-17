@@ -25,7 +25,7 @@ exports.updateProduct = CatchAsyncError(async (req, res, next) => {
     new: true,
     runValidators: true,
     useFindAndModify: true,
-  });
+  }); 
   res.status(200).json({ success: true, product });
 });
 

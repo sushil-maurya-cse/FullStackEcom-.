@@ -29,6 +29,8 @@ exports.newOrder = CatchAsyncError(async (req, res, next) => {
     user:req.user._id,
 
   })
+  console.log("order request reached" , order)
+     
   res.status(201).json({
       success: true,
       order,
